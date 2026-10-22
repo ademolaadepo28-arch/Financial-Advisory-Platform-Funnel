@@ -92,29 +92,29 @@ export default function FAQPage() {
     activeCategory === 'All' ? faqs : faqs.filter((f) => f.category === activeCategory);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-12">
+    <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 space-y-10 sm:space-y-12 overflow-hidden">
       {/* Title Header */}
       <div className="text-center space-y-3 max-w-2xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
-          <BookOpen className="w-3.5 h-3.5" />
+          <BookOpen className="w-3.5 h-3.5 shrink-0" />
           <span>Investor Education & Awareness</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
           Investor Awareness & FAQ Hub
         </h1>
-        <p className="text-sm sm:text-base text-slate-400">
+        <p className="text-xs sm:text-sm md:text-base text-slate-400 leading-relaxed">
           Everything you need to know about fee-only fiduciary advisory, SEBI compliance, mathematical
           methodology, and our direct bank consultation pipeline.
         </p>
       </div>
 
       {/* Category Tabs */}
-      <div className="flex items-center justify-center gap-2 flex-wrap">
+      <div className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+            className={`px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
               activeCategory === cat
                 ? 'bg-emerald-400 text-slate-950 shadow-md shadow-emerald-500/20'
                 : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
@@ -141,25 +141,25 @@ export default function FAQPage() {
               <button
                 type="button"
                 onClick={() => setExpandedId(isExpanded ? null : faq.id)}
-                className="w-full p-5 text-left flex items-center justify-between gap-4 focus:outline-none"
+                className="w-full p-4 sm:p-5 text-left flex items-start sm:items-center justify-between gap-3 focus:outline-none"
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-800 text-emerald-400 shrink-0">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 min-w-0">
+                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-800 text-emerald-400 shrink-0 self-start">
                     {faq.category}
                   </span>
-                  <span className="text-sm sm:text-base font-semibold text-white">
+                  <span className="text-xs sm:text-sm md:text-base font-semibold text-white leading-snug">
                     {faq.question}
                   </span>
                 </div>
                 {isExpanded ? (
-                  <ChevronUp className="w-5 h-5 text-emerald-400 shrink-0" />
+                  <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 shrink-0 mt-0.5 sm:mt-0" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-slate-500 shrink-0" />
+                  <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-slate-500 shrink-0 mt-0.5 sm:mt-0" />
                 )}
               </button>
 
               {isExpanded && (
-                <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 mt-1">
+                <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 mt-1">
                   {faq.answer}
                 </div>
               )}

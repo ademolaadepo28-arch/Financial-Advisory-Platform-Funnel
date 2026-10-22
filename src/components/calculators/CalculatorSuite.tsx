@@ -90,7 +90,7 @@ export default function CalculatorSuite({ defaultTab = 'sip' }: { defaultTab?: C
       {/* Tab Switcher Header */}
       <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
         {/* Scrollable Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none w-full max-w-full touch-pan-x">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -100,7 +100,7 @@ export default function CalculatorSuite({ defaultTab = 'sip' }: { defaultTab?: C
                 type="button"
                 id={`tab-${tab.id}`}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl border text-left shrink-0 transition-all ${
+                className={`flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl border text-left shrink-0 transition-all ${
                   isActive
                     ? 'border-emerald-500/50 bg-emerald-500/10 text-white shadow-lg shadow-emerald-950/40'
                     : 'border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white hover:border-slate-700'
@@ -117,7 +117,7 @@ export default function CalculatorSuite({ defaultTab = 'sip' }: { defaultTab?: C
                   <div className="text-xs sm:text-sm font-semibold flex items-center gap-1.5">
                     {tab.label}
                     {tab.badge && (
-                      <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-emerald-400/20 text-emerald-300 border border-emerald-500/30">
+                      <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-emerald-400/20 text-emerald-300 border border-emerald-500/30 hidden xs:inline">
                         {tab.badge}
                       </span>
                     )}
@@ -130,7 +130,7 @@ export default function CalculatorSuite({ defaultTab = 'sip' }: { defaultTab?: C
         </div>
 
         {/* Action Buttons: Share & Print */}
-        <div className="flex items-center gap-2 shrink-0 self-end md:self-auto">
+        <div className="flex items-center gap-2 shrink-0 self-start sm:self-auto pt-1 md:pt-0">
           <button
             type="button"
             onClick={handleShare}

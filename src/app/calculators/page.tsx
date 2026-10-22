@@ -12,17 +12,17 @@ export const metadata: Metadata = {
 
 export default function CalculatorsPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-8">
+    <div className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-14 space-y-6 sm:space-y-8 overflow-hidden">
       {/* Page Title & Context Header */}
-      <div className="space-y-3 max-w-3xl">
+      <div className="space-y-2.5 max-w-3xl">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
-          <Sparkles className="w-3.5 h-3.5" />
+          <Sparkles className="w-3.5 h-3.5 shrink-0" />
           <span>Un-Gated Mathematical Authority Suite</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
           Institutional Financial Calculators
         </h1>
-        <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-slate-400 leading-relaxed">
           Real-time, reactive client-side financial engines built strictly to SEBI advisory
           standards. Test assumptions, inspect Recharts visual curves, and seamlessly attach your
           active dossier to a private consultation.
@@ -30,7 +30,7 @@ export default function CalculatorsPage() {
       </div>
 
       {/* Tabbed Suite Container */}
-      <div className="bg-slate-950/70 border border-slate-800/80 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
+      <div className="bg-slate-950/70 border border-slate-800/80 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 md:p-8 backdrop-blur-xl shadow-2xl">
         <Suspense
           fallback={
             <div className="p-12 text-center text-slate-400 text-sm">

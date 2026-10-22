@@ -9,9 +9,9 @@ export default function Footer() {
   const { openBooking } = useBooking();
 
   return (
-    <footer className="border-t border-slate-800 bg-slate-950 text-slate-400 text-sm pb-16 pt-12">
+    <footer className="border-t border-slate-800 bg-slate-950 text-slate-400 text-sm pb-28 sm:pb-16 pt-10 sm:pt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 pb-10 sm:pb-12 border-b border-slate-800">
           {/* Brand & Credentials */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center space-x-3">

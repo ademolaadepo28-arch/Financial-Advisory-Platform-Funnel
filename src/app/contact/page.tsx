@@ -36,28 +36,28 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16">
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 space-y-12 sm:space-y-16 overflow-hidden">
       {/* Title Header */}
       <div className="space-y-3 max-w-3xl">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
-          <UserCheck className="w-3.5 h-3.5" />
+          <UserCheck className="w-3.5 h-3.5 shrink-0" />
           <span>Fiduciary Principal Officer</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
           Advisory Profile & Direct Contact
         </h1>
-        <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-slate-400 leading-relaxed">
           Direct engagement with a fee-only fiduciary registered with SEBI. Conflict-free guidance,
           empirical asset allocation, and bespoke family wealth governance.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start">
         {/* Left Column: Advisor Bio & Credentials */}
-        <div className="lg:col-span-7 space-y-8">
+        <div className="lg:col-span-7 space-y-6 sm:space-y-8">
           {/* Bio Card */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/70 border border-slate-800 space-y-6">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <div className="p-5 sm:p-8 rounded-3xl bg-slate-900/70 border border-slate-800 space-y-5 sm:space-y-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-emerald-600 to-emerald-400 flex items-center justify-center text-slate-950 font-extrabold text-3xl shadow-xl shadow-emerald-950/60 shrink-0">
                 AS
               </div>

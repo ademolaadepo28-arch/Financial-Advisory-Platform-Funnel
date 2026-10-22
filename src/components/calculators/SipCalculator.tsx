@@ -85,10 +85,10 @@ export default function SipCalculator() {
 
         <button
           onClick={handleBookWithCalculation}
-          className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-300 hover:from-emerald-300 hover:to-emerald-200 text-slate-950 font-semibold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-emerald-500/20 transition-all shrink-0 active:scale-95"
+          className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-300 hover:from-emerald-300 hover:to-emerald-200 text-slate-950 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all shrink-0 active:scale-95"
         >
-          <Calendar className="w-4 h-4" />
-          Book Consultation with this Plan
+          <Calendar className="w-4 h-4 shrink-0" />
+          <span>Book Consultation with this Plan</span>
         </button>
       </div>
 

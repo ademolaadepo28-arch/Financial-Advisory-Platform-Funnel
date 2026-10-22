@@ -118,18 +118,54 @@ export default function DisclosuresPage() {
     });
   };
 
+  const credentialsList = [
+    {
+      label: 'SEBI Registration Number',
+      value: 'INA000018921',
+      highlight: true,
+      isMono: true,
+    },
+    {
+      label: 'Entity & RIA Legal Name',
+      value: 'Aarav Sharma (Proprietorship / Advisory Vault LLP)',
+    },
+    {
+      label: 'Registration Category',
+      value: 'Individual Registered Investment Adviser (RIA)',
+    },
+    {
+      label: 'BASL Membership ID',
+      value: 'BASL-1402 (Active & Verified)',
+      isMono: true,
+    },
+    {
+      label: 'Validity Period',
+      value: 'Perpetual (Subject to Periodic Filing)',
+      isGreen: true,
+    },
+    {
+      label: 'Registered Office',
+      value:
+        '14th Floor, Express Towers, Barrister Rajni Patel Marg, Nariman Point, Mumbai 400021, Maharashtra, India',
+    },
+    {
+      label: 'Principal Officer & Compliance Officer',
+      value: 'Aarav Sharma, CFA • compliance@arthavault.in • +91 22 6902 4400',
+    },
+  ];
+
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-16">
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 space-y-12 sm:space-y-16 overflow-hidden">
       {/* Title Header */}
       <div className="space-y-3 max-w-3xl">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
-          <ShieldCheck className="w-3.5 h-3.5" />
+          <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
           <span>Statutory Compliance Architecture</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
           SEBI Disclosures & Risk Profiling
         </h1>
-        <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-slate-400 leading-relaxed">
           Full regulatory disclosures under SEBI (Investment Advisers) Regulations, 2013, Grievance
           Redressal Escalate Matrices, and our interactive investor risk profiling model.
         </p>
@@ -137,52 +173,62 @@ export default function DisclosuresPage() {
 
       {/* 1. ADVISOR REGISTRATION CREDENTIALS */}
       <section className="space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-          <Award className="w-5 h-5 text-emerald-400" />
+        <h2 className="text-lg sm:text-2xl font-bold text-white flex items-center gap-2">
+          <Award className="w-5 h-5 text-emerald-400 shrink-0" />
           Advisory Registration Credentials
         </h2>
-        <div className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-950">
+
+        {/* Mobile View: Key-Value Cards */}
+        <div className="block sm:hidden space-y-2.5">
+          {credentialsList.map((item, idx) => (
+            <div
+              key={idx}
+              className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1 text-xs"
+            >
+              <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                {item.label}
+              </div>
+              <div
+                className={`text-xs break-words ${
+                  item.highlight
+                    ? 'text-emerald-400 font-bold font-mono text-sm'
+                    : item.isGreen
+                    ? 'text-emerald-400 font-medium'
+                    : item.isMono
+                    ? 'font-mono text-slate-200'
+                    : 'text-white'
+                }`}
+              >
+                {item.value}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Tablet & Desktop View: Clean Table */}
+        <div className="hidden sm:block overflow-hidden rounded-2xl border border-slate-800 bg-slate-950">
           <table className="w-full text-left text-xs sm:text-sm">
             <tbody className="divide-y divide-slate-800 text-slate-300">
-              <tr className="hover:bg-slate-900/40">
-                <td className="px-6 py-3.5 font-semibold text-slate-400 w-1/3">
-                  SEBI Registration Number
-                </td>
-                <td className="px-6 py-3.5 font-mono text-emerald-400 font-bold">INA000018921</td>
-              </tr>
-              <tr className="hover:bg-slate-900/40">
-                <td className="px-6 py-3.5 font-semibold text-slate-400">Entity & RIA Legal Name</td>
-                <td className="px-6 py-3.5 text-white font-medium">
-                  Aarav Sharma (Proprietorship / Advisory Vault LLP)
-                </td>
-              </tr>
-              <tr className="hover:bg-slate-900/40">
-                <td className="px-6 py-3.5 font-semibold text-slate-400">Registration Category</td>
-                <td className="px-6 py-3.5">Individual Registered Investment Adviser (RIA)</td>
-              </tr>
-              <tr className="hover:bg-slate-900/40">
-                <td className="px-6 py-3.5 font-semibold text-slate-400">BASL Membership ID</td>
-                <td className="px-6 py-3.5 font-mono">BASL-1402 (Active & Verified)</td>
-              </tr>
-              <tr className="hover:bg-slate-900/40">
-                <td className="px-6 py-3.5 font-semibold text-slate-400">Validity Period</td>
-                <td className="px-6 py-3.5 text-emerald-400">Perpetual (Subject to Periodic Filing)</td>
-              </tr>
-              <tr className="hover:bg-slate-900/40">
-                <td className="px-6 py-3.5 font-semibold text-slate-400">Registered Office</td>
-                <td className="px-6 py-3.5">
-                  14th Floor, Express Towers, Barrister Rajni Patel Marg, Nariman Point, Mumbai 400021,
-                  Maharashtra, India
-                </td>
-              </tr>
-              <tr className="hover:bg-slate-900/40">
-                <td className="px-6 py-3.5 font-semibold text-slate-400">
-                  Principal Officer & Compliance Officer
-                </td>
-                <td className="px-6 py-3.5">
-                  Aarav Sharma, CFA • compliance@arthavault.in • +91 22 6902 4400
-                </td>
-              </tr>
+              {credentialsList.map((item, idx) => (
+                <tr key={idx} className="hover:bg-slate-900/40 transition-colors">
+                  <td className="px-5 sm:px-6 py-3.5 font-semibold text-slate-400 w-1/3 align-top">
+                    {item.label}
+                  </td>
+                  <td
+                    className={`px-5 sm:px-6 py-3.5 break-words ${
+                      item.highlight
+                        ? 'font-mono text-emerald-400 font-bold'
+                        : item.isGreen
+                        ? 'text-emerald-400 font-medium'
+                        : item.isMono
+                        ? 'font-mono text-slate-200'
+                        : 'text-white font-medium'
+                    }`}
+                  >
+                    {item.value}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -190,66 +236,73 @@ export default function DisclosuresPage() {
 
       {/* 2. FORMAL SEBI GRIEVANCE REDRESSAL MATRIX */}
       <section id="redressal" className="space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-          <Scale className="w-5 h-5 text-emerald-400" />
+        <h2 className="text-lg sm:text-2xl font-bold text-white flex items-center gap-2">
+          <Scale className="w-5 h-5 text-emerald-400 shrink-0" />
           Grievance Redressal Escalate Matrix
         </h2>
-        <p className="text-xs sm:text-sm text-slate-400">
+        <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
           In case of any grievance or query, investors can resolve complaints in accordance with the
           following 3-tiered resolution pipeline mandated by SEBI:
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Level 1 */}
-          <div className="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3">
-            <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-              Level 1: Intermediary
-            </span>
-            <h3 className="text-base font-bold text-white">Direct Advisory Redressal</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Email your grievance to <code className="text-emerald-400">grievance@arthavault.in</code>{' '}
-              with client reference details.
-            </p>
-            <div className="text-[11px] text-slate-300 font-semibold pt-1 border-t border-slate-800">
-              Binding Resolution Window: Max 21 Calendar Days
+          <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3 flex flex-col justify-between">
+            <div className="space-y-2">
+              <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 inline-block">
+                Level 1: Intermediary
+              </span>
+              <h3 className="text-sm sm:text-base font-bold text-white">Direct Advisory Redressal</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Email your grievance to{' '}
+                <code className="text-emerald-400 break-all">grievance@arthavault.in</code> with client
+                reference details.
+              </p>
+            </div>
+            <div className="text-[11px] text-slate-300 font-semibold pt-2 border-t border-slate-800/80">
+              Binding Resolution: Max 21 Calendar Days
             </div>
           </div>
 
           {/* Level 2 */}
-          <div className="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3">
-            <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">
-              Level 2: Regulatory Portal
-            </span>
-            <h3 className="text-base font-bold text-white">SEBI SCORES 2.0 Portal</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              If the grievance is unresolved within 21 days, file a formal complaint on SEBI Complaints
-              Redress System (SCORES).
-            </p>
+          <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3 flex flex-col justify-between">
+            <div className="space-y-2">
+              <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 inline-block">
+                Level 2: Regulatory Portal
+              </span>
+              <h3 className="text-sm sm:text-base font-bold text-white">SEBI SCORES 2.0 Portal</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                If unresolved within 21 days, file a formal complaint on the SEBI Complaints Redress
+                System (SCORES).
+              </p>
+            </div>
             <a
               href="https://scores.sebi.gov.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[11px] text-emerald-400 font-semibold pt-1 border-t border-slate-800 flex items-center gap-1 hover:underline"
+              className="text-[11px] text-emerald-400 font-semibold pt-2 border-t border-slate-800/80 flex items-center gap-1 hover:underline"
             >
               Access SCORES 2.0 <ExternalLink className="w-3 h-3" />
             </a>
           </div>
 
           {/* Level 3 */}
-          <div className="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3">
-            <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20">
-              Level 3: Dispute Resolution
-            </span>
-            <h3 className="text-base font-bold text-white">SMART ODR Portal</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Online Dispute Resolution platform for conciliation and online arbitration as per SEBI
-              circular SEBI/HO/OIAE/OIAE_IAD-1/P/CIR/2023/131.
-            </p>
+          <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3 flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+            <div className="space-y-2">
+              <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 inline-block">
+                Level 3: Dispute Resolution
+              </span>
+              <h3 className="text-sm sm:text-base font-bold text-white">SMART ODR Portal</h3>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Online Dispute Resolution platform for conciliation and online arbitration as per SEBI
+                circular SEBI/HO/OIAE/OIAE_IAD-1/P/CIR/2023/131.
+              </p>
+            </div>
             <a
               href="https://smartodr.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[11px] text-emerald-400 font-semibold pt-1 border-t border-slate-800 flex items-center gap-1 hover:underline"
+              className="text-[11px] text-emerald-400 font-semibold pt-2 border-t border-slate-800/80 flex items-center gap-1 hover:underline"
             >
               Access SMART ODR <ExternalLink className="w-3 h-3" />
             </a>
@@ -258,9 +311,9 @@ export default function DisclosuresPage() {
       </section>
 
       {/* 3. PARTNER MODEL SAAS & EXECUTION BOUNDARIES */}
-      <section className="p-6 sm:p-8 rounded-3xl bg-slate-950 border border-slate-800 space-y-4">
-        <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-          <AlertTriangle className="w-5 h-5 text-amber-400" />
+      <section className="p-5 sm:p-8 rounded-3xl bg-slate-950 border border-slate-800 space-y-4">
+        <h2 className="text-base sm:text-xl font-bold text-white flex items-center gap-2">
+          <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0" />
           Execution Boundaries & Partner Model SaaS Demarcation
         </h2>
         <div className="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
@@ -268,7 +321,7 @@ export default function DisclosuresPage() {
             In strict compliance with SEBI guidelines regarding the segregation of advisory and
             distribution/execution activities:
           </p>
-          <ul className="list-disc list-inside space-y-2 text-slate-400">
+          <ul className="list-disc list-inside space-y-2 text-slate-400 text-xs sm:text-sm">
             <li>
               <strong className="text-white">Zero Brokerage Integration:</strong> ArthaVault does not
               integrate direct custodial brokerage APIs or execute trades on client behalf without
@@ -288,33 +341,33 @@ export default function DisclosuresPage() {
       </section>
 
       {/* 4. INTERACTIVE SEBI RISK PROFILING TEST */}
-      <section id="risk-profiler" className="space-y-6 pt-4">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <section id="risk-profiler" className="space-y-6 pt-2">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <PieIcon className="w-5 h-5 text-emerald-400" />
+            <h2 className="text-lg sm:text-2xl font-bold text-white flex items-center gap-2">
+              <PieIcon className="w-5 h-5 text-emerald-400 shrink-0" />
               Interactive SEBI Risk Profiling Model
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1">
+            <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
               Suitability assessment required prior to providing personalized investment advice.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs">
-            <span className="text-slate-400">Assessed Profile:</span>
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs shrink-0 self-start sm:self-auto">
+            <span className="text-slate-400">Assessed:</span>
             <strong className="text-emerald-400 font-bold">{riskResult.category}</strong>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Questions List */}
-          <div className="lg:col-span-7 space-y-5">
+          <div className="lg:col-span-7 space-y-4">
             {riskQuestions.map((q) => (
               <div
                 key={q.id}
-                className="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3"
+                className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2.5"
               >
-                <div className="text-xs sm:text-sm font-semibold text-white">
+                <div className="text-xs sm:text-sm font-semibold text-white leading-snug">
                   {q.id}. {q.question}
                 </div>
                 <div className="space-y-2">
@@ -329,7 +382,7 @@ export default function DisclosuresPage() {
                           : 'border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700 hover:text-white'
                       }`}
                     >
-                      <span>{opt.label}</span>
+                      <span className="leading-relaxed">{opt.label}</span>
                       {answers[q.id] === opt.score && (
                         <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                       )}
@@ -341,12 +394,12 @@ export default function DisclosuresPage() {
           </div>
 
           {/* Profiler Output & Recommended Allocation */}
-          <div className="lg:col-span-5 space-y-6 bg-slate-900/80 border border-slate-800 p-6 rounded-2xl sticky top-28 backdrop-blur-md">
+          <div className="lg:col-span-5 space-y-5 bg-slate-900/80 border border-slate-800 p-5 sm:p-6 rounded-2xl lg:sticky lg:top-24 backdrop-blur-md">
             <div>
               <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 block">
                 Suitability Diagnostic
               </span>
-              <h3 className="text-xl font-bold text-white mt-1 flex items-center gap-2">
+              <h3 className="text-lg sm:text-xl font-bold text-white mt-1 flex items-center gap-2">
                 {riskResult.category} Investor
                 <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                   Score {riskResult.totalScore}/12
@@ -365,17 +418,17 @@ export default function DisclosuresPage() {
               <div className="h-4 w-full bg-slate-950 rounded-full overflow-hidden flex">
                 <div
                   style={{ width: `${riskResult.recommendedAllocation.equity}%` }}
-                  className="bg-emerald-500 h-full"
+                  className="bg-emerald-500 h-full transition-all duration-300"
                   title={`Equity ${riskResult.recommendedAllocation.equity}%`}
                 />
                 <div
                   style={{ width: `${riskResult.recommendedAllocation.debt}%` }}
-                  className="bg-blue-500 h-full"
+                  className="bg-blue-500 h-full transition-all duration-300"
                   title={`Debt ${riskResult.recommendedAllocation.debt}%`}
                 />
                 <div
                   style={{ width: `${riskResult.recommendedAllocation.gold}%` }}
-                  className="bg-amber-500 h-full"
+                  className="bg-amber-500 h-full transition-all duration-300"
                   title={`Gold ${riskResult.recommendedAllocation.gold}%`}
                 />
               </div>
