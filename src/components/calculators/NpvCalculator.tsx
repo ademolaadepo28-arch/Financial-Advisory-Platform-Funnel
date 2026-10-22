@@ -6,16 +6,13 @@ import {
   formatINR,
   formatPercentage,
 } from '@/lib/calculators';
-import { NPVInputs, NPVPeriodInput } from '@/types';
+import { NPVPeriodInput } from '@/types';
 import { useBooking } from '@/components/booking/BookingContext';
 import {
   Activity,
   Calendar,
   Plus,
   Trash2,
-  CheckCircle,
-  AlertTriangle,
-  TrendingUp,
   Info,
 } from 'lucide-react';
 import {

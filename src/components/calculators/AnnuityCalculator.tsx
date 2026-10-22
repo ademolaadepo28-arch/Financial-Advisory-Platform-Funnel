@@ -12,10 +12,6 @@ import { useBooking } from '@/components/booking/BookingContext';
 import {
   Coins,
   Calendar,
-  Wallet,
-  Clock,
-  ArrowDownRight,
-  TrendingDown,
   Info,
 } from 'lucide-react';
 import {
@@ -301,9 +297,9 @@ export default function AnnuityCalculator() {
                         borderRadius: '0.75rem',
                         fontSize: '12px',
                       }}
-                      formatter={(v: any, name: any) => [
+                      formatter={(v: unknown, name: unknown) => [
                         formatINR(Number(v)),
-                        name === 'interestEarned' ? 'Interest Earned' : 'Principal Decay',
+                        String(name) === 'interestEarned' ? 'Interest Earned' : 'Principal Decay',
                       ]}
                     />
                     <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '10px' }} />
@@ -352,7 +348,7 @@ export default function AnnuityCalculator() {
                         borderRadius: '0.75rem',
                         fontSize: '12px',
                       }}
-                      formatter={(v: any) => [formatINR(Number(v)), 'Remaining Balance']}
+                      formatter={(v: unknown) => [formatINR(Number(v)), 'Remaining Balance']}
                     />
                     <Area
                       type="monotone"

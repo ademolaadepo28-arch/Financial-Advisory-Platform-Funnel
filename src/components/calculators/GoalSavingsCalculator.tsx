@@ -4,7 +4,6 @@ import React, { useState, useMemo } from 'react';
 import {
   calculateGoalSavings,
   formatINR,
-  formatPercentage,
   formatYears,
 } from '@/lib/calculators';
 import { GoalSavingsInputs, RiskAppetite } from '@/types';
@@ -12,23 +11,16 @@ import { useBooking } from '@/components/booking/BookingContext';
 import {
   Target,
   Calendar,
-  Zap,
-  TrendingUp,
-  Shield,
-  Layers,
-  ArrowUpRight,
   Info,
 } from 'lucide-react';
 import {
   ResponsiveContainer,
   AreaChart,
   Area,
-  Line,
   XAxis,
   YAxis,
   Tooltip,
   CartesianGrid,
-  Legend,
   ReferenceLine,
 } from 'recharts';
 
@@ -104,7 +96,7 @@ export default function GoalSavingsCalculator() {
           {/* Target Amount */}
           <div className="space-y-2">
             <div className="flex justify-between items-center text-xs">
-              <span className="font-semibold text-slate-300">Target Goal Amount (Today's Value)</span>
+              <span className="font-semibold text-slate-300">Target Goal Amount (Today&apos;s Value)</span>
               <span className="text-emerald-400 font-bold font-mono text-sm">
                 {formatINR(inputs.targetAmount)}
               </span>
@@ -293,11 +285,11 @@ export default function GoalSavingsCalculator() {
                       borderRadius: '0.75rem',
                       fontSize: '12px',
                     }}
-                    formatter={(value: any, name: any) => [
+                    formatter={(value: unknown, name: unknown) => [
                       formatINR(Number(value)),
-                      name === 'corpusWithRequiredSip'
+                      String(name) === 'corpusWithRequiredSip'
                         ? 'Corpus with Recommended SIP'
-                        : name === 'corpusWithExistingOnly'
+                        : String(name) === 'corpusWithExistingOnly'
                         ? 'Existing Savings Only'
                         : 'Inflation Target',
                     ]}

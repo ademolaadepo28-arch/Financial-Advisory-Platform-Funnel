@@ -13,7 +13,6 @@ import {
   Coins,
   Target,
   Activity,
-  FileSpreadsheet,
   Download,
   Share2,
   Check,
@@ -25,14 +24,17 @@ export default function CalculatorSuite({ defaultTab = 'sip' }: { defaultTab?: C
   const searchParams = useSearchParams();
   const tabParam = searchParams.get('tab') as CalculatorTab | null;
 
-  const [activeTab, setActiveTab] = useState<CalculatorTab>(tabParam || defaultTab);
+  const [internalTab, setInternalTab] = useState<CalculatorTab>(defaultTab);
   const [copiedLink, setCopiedLink] = useState(false);
 
-  useEffect(() => {
-    if (tabParam && ['sip', 'retirement', 'annuity', 'goal', 'npv'].includes(tabParam)) {
-      setActiveTab(tabParam);
-    }
-  }, [tabParam]);
+  const activeTab: CalculatorTab =
+    tabParam && ['sip', 'retirement', 'annuity', 'goal', 'npv'].includes(tabParam)
+      ? (tabParam as CalculatorTab)
+      : internalTab;
+
+  const setActiveTab = (tab: CalculatorTab) => {
+    setInternalTab(tab);
+  };
 
   const tabs: {
     id: CalculatorTab;
